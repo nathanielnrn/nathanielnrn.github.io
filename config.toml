@@ -7,10 +7,42 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+title = "~/nathanielnrn"
+
+
+description = "Nathaniel's personal website."
+
+theme = "tabi"
+
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = false
+smart_punctuation = true
 
 [extra]
 # Put all your custom variables here
+#Makes site green
+skin = "mint"
+browser_theme_color = ["#00b86e", "#00804d"]
+favicon = "favicon.ico"
+
+
+#Nav Menu
+menu = [
+    { name = "About me", url = "about", trailing_slash = true },
+    { name = "Projects", url = "projects", trailing_slash = true },
+    { name = "Resume", url = "projects", trailing_slash = true },
+]
+
+#base64 encoded email used in footer
+email = "bmF0aGFuaWVsbnJuOTlAZ21haWwuY29t"
+
+#Footer socials
+socials = [
+    { name = "github", url = "https://github.com/nathanielnrn/", icon = "github" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/nathaniel-navarro/", icon = "linkedin" },
+]
+
+
