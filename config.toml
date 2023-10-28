@@ -33,7 +33,7 @@ favicon = "favicon.ico"
 menu = [
     { name = "About me", url = "about", trailing_slash = true },
     { name = "Projects", url = "projects", trailing_slash = true },
-    { name = "Resume", url = "projects", trailing_slash = true },
+    { name = "Resume", url = "resume", trailing_slash = true },
 ]
 
 #base64 encoded email used in footer
