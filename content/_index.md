@@ -1,5 +1,5 @@
 +++
-title = "Nate's Home"
+title = "My Work"
 template = "index.html"
 [extra]
 header = {title = "Hi, I'm Nathaniel", img = "img/headshot.png", img_alt = "Nathaniel Navarro" }
