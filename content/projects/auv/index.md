@@ -1,6 +1,6 @@
 +++
 title = "CUAUV"
-description = "CUAUV is an autonomous underwater vehicle team that anually builds an autonomous submarine to compete in the RoboSub competition."
+description = "CUAUV is an autonomous underwater vehicle team that annually builds an autonomous submarine to compete in the RoboSub competition."
 weight = 2
 
 [extra]
