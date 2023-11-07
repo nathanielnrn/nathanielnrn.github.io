@@ -7,13 +7,22 @@ weight = 2
 local_image = "projects/auv/subs.png"
 +++
 
-[CUAUV](https://cuauv.org) 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus nisl eget gravida efficitur. Cras vel tincidunt dolor. Phasellus iaculis tortor nec cursus semper. Aliquam sed turpis vel velit elementum aliquet eu tincidunt dui. Vivamus ultricies eros nibh, ut auctor sapien iaculis et. Phasellus nec odio dapibus ex lacinia scelerisque. In pharetra, dolor vitae pretium tempus, justo risus dignissim metus, at cursus nulla velit sit amet dolor. Morbi lacinia orci et augue congue, quis pulvinar tortor consequat. Suspendisse eget pellentesque neque. Mauris sit amet congue dui. Integer scelerisque, felis at vestibulum eleifend, sapien lorem maximus ligula, ut aliquet leo risus non lectus. Cras fringilla volutpat justo.
+[CUAUV](https://cuauv.org) is a Cornell Project Team that annually creates an
+autonomous underwater vehicle for competition in [Robosub](https://robonation.org/programs/robosub/).
+The submarine uses a from-scratch software stack to understand the world around
+it, control itself, and remain funcaiton in the face of distrubances.
 
 
-#### CUAUV development happens on a private repo and can be seen upon request {.centered-text}
+#### CUAUV development happens on a private repo and can be viewed upon request {.centered-text}
 
 ## Contributions
 
- - Optimized our control systems, combiniting control theory, physics, and numerical
- optimizations to create a well-behaved submarine.
+ - Optimized **control system**, incorporating a closed-loop PID system, a
+ desire-to-thrust optimizer, and updated pwm-to-thrust curves with empirical measurements.
+ Our control system produces a responsive and predictively-behaved submarine.
+ - Tuned **CV algorithms** incorporating SIFT, contour denoising, and associated
+ locomotion logic.
+ - **Auto-PID-tuner** rewrite that utilizes [Zeigler-Nichols](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method)
+ to caculate PID values that produce desired behavior. This rewrite included
+ updated logic and quality of life improvements for the auto-tuner and associated
+ tools.

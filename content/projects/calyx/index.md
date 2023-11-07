@@ -15,6 +15,6 @@ and automatically optimizes programs when being lowered to synthesizable designs
 
 ## Contributions
 
-- Created dynamically generation of **AXI Wrappers** for arbitrary calyx programs
+- **AXI Wrapper** generator dynamically produces wrappers for arbitrary calyx programs
 that allows these programs to be run on Xilinx FPGAs.
 - **Cocotb testbench** that verifies the correctness of said AXI wrappers.
