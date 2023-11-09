@@ -10,7 +10,7 @@ local_image = "projects/auv/subs.png"
 [CUAUV](https://cuauv.org) is a Cornell Project Team that annually creates an
 autonomous underwater vehicle for competition in [Robosub](https://robonation.org/programs/robosub/).
 The submarine uses a from-scratch software stack to understand the world around
-it, control itself, and remain funcaiton in the face of distrubances.
+it, control itself, and remain functional in the face of external disturbances.
 
 
 #### CUAUV development happens on a private repo and can be viewed upon request {.centered-text}
