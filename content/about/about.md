@@ -15,9 +15,10 @@ programming languages, and hardware software interfaces. I am currently working 
 mentored by [Adrian Sampson](https://www.cs.cornell.edu/~asampson/) and
 [Rachit Nigam](https://rachit.pl/).
 
-I have previously interned at [Netflix](https://www.netflix.com/), where
+I previously interned at [Netflix](https://www.netflix.com/), where
 I worked on the Growth Engineering team to deliver backend functionality
-to UX engineers. I will be returning to Netflix at the end of Summer 2024.
+to a variety of downstream services in the name of enabling
+customer retention. I will be returning to Netflix at the end of Summer 2024.
 Prior to  starting school I was an Air Defense Operator ("Interceptor") and
 eventually a Drill Instructor in the Israeli Air Defense Command.
 
