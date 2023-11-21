@@ -7,7 +7,7 @@ weight = 1
 local_image = "projects/calyx/calyx-project.png"
 +++
 
-[Calyx](https://calyxir.org) aims to be a shared infrastructure in the development
+[Calyx](https://calyxir.org) is a shared compiler infrastructure in the development
 of specialized hardware accelarators. Calyx simplifies the encoding of high-level semantics
 and automatically optimizes programs when being lowered to synthesizable designs.
 
@@ -17,4 +17,7 @@ and automatically optimizes programs when being lowered to synthesizable designs
 
 - **AXI Wrapper** generator dynamically produces wrappers for arbitrary calyx programs
 that allows these programs to be run on Xilinx FPGAs.
-- **Cocotb testbench** that verifies the correctness of said AXI wrappers.
+- **Cocotb testbench** verifies the correctness of said AXI wrappers and is
+incorporated in Calyx's CI suite.
+- **fud** is a Calyx toolchain driver that pipelines various executions and steps.
+I created a number of pipelines to assist with executing programs on FPGAs.
