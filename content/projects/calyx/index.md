@@ -18,6 +18,10 @@ and automatically optimizes programs when being lowered to synthesizable designs
 - **AXI Wrapper** generator dynamically produces wrappers for arbitrary calyx programs
 that allows these programs to be run on Xilinx FPGAs.
 - **Cocotb testbench** verifies the correctness of said AXI wrappers and is
-incorporated in Calyx's CI suite.
+incorporated in Calyx's CI suite. The custom testbench simulates AXI transactions
+with dynamically generated AXI wrappers and outputs are compared with expected
+baseline results.
 - **fud** is a Calyx toolchain driver that pipelines various executions and steps.
-I created a number of pipelines to assist with executing programs on FPGAs.
+Fud includes a number of pipelines that assist with executing programs on FPGAs
+utilizing tools such as[Vitis](https://www.xilinx.com/products/design-tools/vitis.html) and
+[XRT](https://www.xilinx.com/products/design-tools/vitis/xrt.html).
