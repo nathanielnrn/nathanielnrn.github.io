@@ -18,7 +18,8 @@ theme = "tabi"
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+highlight_code = true
+highlight_theme = "kronuz"
 smart_punctuation = true
 
 [extra]
@@ -32,8 +33,10 @@ favicon = "favicon.ico"
 #Nav Menu
 menu = [
     { name = "About me", url = "about", trailing_slash = true },
+    { name = "Research", url = "research", trailing_slash = true},
     { name = "Projects", url = "projects", trailing_slash = true },
     { name = "Resume", url = "resume", trailing_slash = true },
+    
 ]
 
 #base64 encoded email used in footer
@@ -53,3 +56,5 @@ allowed_domains = [
     { directive = "style-src", domains = ["'self'"] },
     { directive = "frame-src", domains = ["'self'", "player.vimeo.com", "https://www.youtube-nocookie.com"] },
 ]
+
+show_reading_time = false
