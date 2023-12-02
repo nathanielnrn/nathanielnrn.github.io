@@ -11,6 +11,23 @@ testing and execution of programs on FPGAs."""
 [extra]
 +++
 
+#### Overview
+
+<div style="font-size:0.8em">
+
+I created stages for the Calyx toolchain driver
+[fud](https://docs.calyxir.org/fud/index.html)
+that linked together Python and Bash scripts with Xilinx
+[tools](https://www.xilinx.com/products/design-tools/vitis.html)
+to enable the easy execution of [Calyx](https://calyxir.org/) programs on FPGAs.
+This work could not have happened without the help of [Rachit Nigam][rachit] and
+[Adrian Sampson][adrian].
+
+
+</div>
+
+---
+
 In trying to get Verilog AXI interfaces to [interface with XRT](../axi-interface)
 it made sense to have a system that allowed for rapid testing of iterations of my
 AXI interface.
@@ -87,3 +104,5 @@ inputs `A` and `B`, and `v` contains the result of our dot product.
 
 
 [calyx]: https://calyxir.org/
+[adrian]: https://www.cs.cornell.edu/~asampson/
+[rachit]: https://rachit.pl/

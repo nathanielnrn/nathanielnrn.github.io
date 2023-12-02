@@ -12,9 +12,13 @@ AXI interfaces in Verilog for the purpose of interfacting with XRT shells."""
 
 #### Overview
 
+<div style="font-size:0.8em" >
+
 I worked on a dynamic AXI generator in Rust that produced Verilog AXI wrappers
 that allows lowered Calyx programs (i.e RTL Verilog) to be simulated/executed on FPGAs. This work
 would not have been possible without the help of [Rachit Nigam][rachit], [Samuel Thomas][sam], [Andrew Butt][andrew], and [Adrian Sampson][adrian].
+
+</div>
 
 ---
 
