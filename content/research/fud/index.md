@@ -3,7 +3,9 @@ title = "Push Button FPGA Toolchains"
 #date = 2023-11-30
 #updated = 2023-11-30
 weight = 2
-description = "I've worked on integrating custom scripts into toolchains to allow for the easy testing and execution of programs on FPGAs."
+description = """In Summer '22 I worked on integrating custom bash and python
+scripts, as well as Xilinx tools into complex toolchains to allow for the easy
+testing and execution of programs on FPGAs."""
 
 
 [extra]
@@ -43,13 +45,24 @@ The final product allows us to run programs in two steps.
 ```
 fud exec source-program.futil -o output-file.xclbin --to xclbin
 ```
+
 2. Execute said `xclbin` on an FPGA (equivalent to running an exectuable)
 ```
 fud exec some-output.xclbin --from xclbin --to fpga -s fpga.data program-input.data
 ```
 
 
+For a very simple dot product program, compiling ends up looking something like this:
 
+{{ webm(alt="Execution of a fud compilation command in terminal.",  src="create-xclbin.webm") }}
+
+
+And we can then execute the output file `dot-product-2.xclbin`. The output
+details the state of the memories defined in the original dot-product
+program at the end of execution. Namely, we can see the values of our
+inputs `A` and `B`, and `v` contains the result of our dot product.
+
+{{ webm(alt="Execution of a fud execution command in terminal.",  src="fpga-execute.webm") }}
 
 
 [//]: # (Getting programs to to run on FPGAs is _hard_. If you've ever fought your way)
