@@ -7,6 +7,19 @@ weight = 2
 local_image = "projects/auv/subs.png"
 +++
 
+
+<div style="font-size:0.8em" >
+
+For 3 years I worked with 50 cross-disciplinary teammates to annually create an
+autonomous submarine and compete in [Robosub](https://robonation.org/programs/robosub/).
+In particular, I have contributed to our submarines'
+control optimizer, computer vision systems, and PID tuner with implementations
+in Python, often utilizing OpenCV libraries.
+
+</div>
+
+---
+
 [CUAUV](https://cuauv.org) is a Cornell Project Team that annually creates an
 autonomous underwater vehicle for competition in [Robosub](https://robonation.org/programs/robosub/).
 The submarine uses a from-scratch software stack to understand the world around

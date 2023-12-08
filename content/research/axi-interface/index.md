@@ -31,14 +31,15 @@ AXI interfaces are required to interface with FPGA shells such as Xilinx's [XRT]
 While platforms like [Vitis](https://www.xilinx.com/products/design-tools/vitis.html)
 exist that nominally help with AXI generation, the implementations produced have
 historically been buggy, as mentioned above. Furthermore, relying on Vitis 
-wizards" is clunky and requires more buy-in to Virtis ecosystem than some would like.
+"[wizards](https://xilinx.github.io/xup_compute_acceleration/rtl_kernel_lab.html)"
+is clunky and requires more buy-in to Vitis ecosystem than some would like.
 
 This was the case at [Capra](https://capra.cs.cornell.edu/). We had a desire to
 be able to run [Calyx](https://calyxir.org/) programs on FPGAs while being coupled
 to the Vitis ecosystem as little as possible. While we needed Vitis to be able
 to produce [xclbins](https://xilinx.github.io/XRT/master/html/formats.html),
 we hoped to avoid opening up a GUI and invoking an
-"[RTL Kernel Wizard](https://xilinx.github.io/xup_compute_acceleration/rtl_kernel_lab.html)."
+"RTL Kernel Wizard".
 
 To enable easy execution, I worked on a dynamic AXI generator that took in Calyx
 programs as input, and output verilog files that contained both the lowered

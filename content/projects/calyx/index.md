@@ -7,6 +7,17 @@ weight = 1
 local_image = "projects/calyx/calyx-project.png"
 +++
 
+
+
+<div style="font-size:0.8em" >
+
+For more in depth explanations on some of the work I've done for Calyx, see
+my [research](../../research).
+
+</div>
+
+---
+
 [Calyx](https://calyxir.org) is a shared compiler infrastructure accelerating the development
 of specialized hardware accelerators. Calyx simplifies the encoding of high-level semantics
 and automatically optimizes programs when being lowered to synthesizable designs.
@@ -24,8 +35,6 @@ A bug found in Xilinx example cores. Taken from <a href="https://zipcpu.com/form
 
 My current work is on creating push-button workflows that enables executing programs
 on FPGAs via Calyx transformations and AXI-wrappers.
-
-For more information on Calyx, see my [research](../../research).
 
 #### [View Calyx on GitHub](https://github.com/cucapra/calyx) {.centered-text}
 
