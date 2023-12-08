@@ -11,5 +11,5 @@ quick_navigation_buttons = true
 +++
 
 The following is a high level overview of some of the projects I've worked on.
-For more in depth explanations of my work on Calyx please see my
+For more in depth explanations of my work please see my
 [research](../research).

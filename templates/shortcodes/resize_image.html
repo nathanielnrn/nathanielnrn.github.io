@@ -13,7 +13,7 @@
 <img src="{{ image.url }}"/>
 <figcaption> 
 	{% if body %}
-	{{body}} 
+	{{body | safe}} 
 	{% endif %}
 </figcaption>
 </figure>
