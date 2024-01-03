@@ -1,10 +1,10 @@
 +++
 title = "Calyx"
 description = "Calyx is a compiler infrastructure for languages that targets hardware accelerators."
-weight = 1
+weight = 0
 
 [extra]
-local_image = "projects/calyx/calyx-project.png"
+local_image = "projects/calyx/calyx-project-edit.png"
 +++
 
 

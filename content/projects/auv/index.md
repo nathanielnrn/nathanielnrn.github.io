@@ -4,7 +4,7 @@ description = "CUAUV is an autonomous underwater vehicle team that annually buil
 weight = 2
 
 [extra]
-local_image = "projects/auv/subs.png"
+local_image = "projects/auv/subs-edit.png"
 +++
 
 
