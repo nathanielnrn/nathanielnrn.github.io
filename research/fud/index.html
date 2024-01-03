@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>~/nathanielnrn • Push Button FPGA Toolchains</title>
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://nathanielnrn.github.io/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://nathanielnrn.github.io/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://nathanielnrn.github.io/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="https://nathanielnrn.github.io/favicon_io/site.webmanifest">
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="~/nathanielnrn" href="https://nathanielnrn.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href=https://nathanielnrn.github.io/inter_subset_en.css>
+    
+
+    
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/main.css?h=488f3e8c564413dd034b" />
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/skins/mint.css?h=8be2c55cdb86ad80e1ed" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00b86e" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#00804d" />
+        <meta name="description" content="In Summer &#x27;22 I worked on integrating custom bash and python
+scripts, as well as Xilinx tools into complex toolchains to allow for the easy
+testing and execution of programs on FPGAs." />
+        <meta property="og:description" content="In Summer &#x27;22 I worked on integrating custom bash and python
+scripts, as well as Xilinx tools into complex toolchains to allow for the easy
+testing and execution of programs on FPGAs." />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Push Button FPGA Toolchains" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;nathanielnrn.github.io&#x2F;research&#x2F;fud&#x2F;" /><meta property="og:site_name" content="~&#x2F;nathanielnrn"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;;frame-src &#x27;self&#x27; player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+
+        <noscript><link rel="stylesheet" href="https://nathanielnrn.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://nathanielnrn.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://nathanielnrn.github.io/js/themeSwitcher.min.js"/></script></head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://nathanielnrn.github.io>~&#x2F;nathanielnrn</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/about/">
+                                About me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/research/">
+                                Research
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/projects/">
+                                Projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/resume/">
+                                Resume
+                                </a>
+                            </li>
+                        
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Push Button FPGA Toolchains
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+
+            
+            
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <h4 id="overview">Overview</h4>
+<div style="font-size:0.8em">
+<p>I created stages for the Calyx toolchain driver
+<a href="https://docs.calyxir.org/fud/index.html">fud</a>
+that linked together Python and Bash scripts with Xilinx
+<a href="https://www.xilinx.com/products/design-tools/vitis.html">tools</a>
+to enable the easy execution of <a href="https://calyxir.org/">Calyx</a> programs on FPGAs.
+This work could not have happened without the help of <a href="https://rachit.pl/">Rachit Nigam</a> and
+<a href="https://www.cs.cornell.edu/~asampson/">Adrian Sampson</a>.</p>
+</div>
+<hr />
+<p>In trying to get Verilog AXI interfaces to <a href="../axi-interface">interface with XRT</a>
+it made sense to have a system that allowed for rapid testing of iterations of my
+AXI interface.
+Ideally, we would have a simple system to either simulate programs or actually execute them on our
+<a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html">Xilinx Alveo U50</a>.</p>
+<p>Unfortunately, going from a program to doing either of the above was enough of a
+chore that it required an <a href="https://docs.calyxir.org/fud/xilinx.html">entire page of dedicated documentation</a>
+detailing environment variables that needed to be set and flags that needed
+to be passed in in order to have any hope of getting programs to execute properly.</p>
+<p>To this end, I worked on creating <a href="https://docs.calyxir.org/fud/index.html">fud</a> stages
+that would simplify the process of running programs on our FPGA.</p>
+<p><code>fud</code> is a command line tool that pipelines together the various tools and stages
+needed to convert Calyx programs into desired output programs. In our case,
+we wanted to go from Calyx to <a href="https://xilinx.github.io/XRT/master/html/formats.html">xclbins</a>
+to actually simulating/executing.</p>
+<p>The fud stage I <a href="https://github.com/cucapra/calyx/blob/master/fud/fud/xclrun.py">created</a>
+parsed json files into inputs to programs,
+and utilized <a href="https://www.pynq.io/">PYNQ</a> to run these programs on hardware.</p>
+<p>The work involved creating custom bash and python scripts, integrating said
+scripts into existing tools, diving into the documentation of PYNQ and integrating
+that as well, and expanding configuration options to correctly set environment
+variables and pass in flags as appropriate.</p>
+<p>The final product allows us to run programs in two steps.</p>
+<ol>
+<li>Create an <code>xclbin</code> (equivalent to compiling an executable via something like gcc):</li>
+</ol>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>fud exec source-program.futil -o output-file.xclbin --to xclbin
+</span></code></pre>
+<ol start="2">
+<li>Execute said <code>xclbin</code> on an FPGA (equivalent to running an exectuable)</li>
+</ol>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>fud exec some-output.xclbin --from xclbin --to fpga -s fpga.data program-input.data
+</span></code></pre>
+<p>For a very simple dot product program, compiling ends up looking something like this:</p>
+<video autoplay loop muted src="https://nathanielnrn.github.io/research/fud/create-xclbin.webm">
+ Execution of a fud compilation command in terminal.
+</video>
+<p>And we can then execute the output file <code>dot-product-2.xclbin</code>. The output
+details the state of the memories defined in the original dot-product
+program at the end of execution. Namely, we can see the values of our
+inputs <code>A</code> and <code>B</code>, and <code>v</code> contains the result of our dot product.</p>
+<video autoplay loop muted src="https://nathanielnrn.github.io/research/fud/fpga-execute.webm">
+ Execution of a fud execution command in terminal.
+</video>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+
+    </article>
+</main>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://nathanielnrn.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="bmF0aGFuaWVsbnJuOTlAZ21haWwuY29t"><img alt="email" title="email" src="https://nathanielnrn.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/nathanielnrn/>
+                                <img alt=github title=github src="https://nathanielnrn.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://www.linkedin.com/in/nathaniel-navarro/>
+                                <img alt=linkedin title=linkedin src="https://nathanielnrn.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://nathanielnrn.github.io/js/decodeMail.min.js" async></script></footer>
+
+</body>
+
+</html>
