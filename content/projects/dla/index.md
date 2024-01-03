@@ -4,7 +4,7 @@ description = "We created a motion controlled diffusion limited aggregation simu
 weight = 1
 
 [extra]
-local_image = "projects/dla/dla-edit.png"
+local_image = "projects/dla/dla.png"
 link_to = "https://nathanielnrn.github.io/dla-documentation/"
 +++
 

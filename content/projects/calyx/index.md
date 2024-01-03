@@ -4,7 +4,7 @@ description = "Calyx is a compiler infrastructure for languages that targets har
 weight = 0
 
 [extra]
-local_image = "projects/calyx/calyx-project-edit.png"
+local_image = "projects/calyx/calyx-project.png"
 +++
 
 
