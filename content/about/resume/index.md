@@ -7,4 +7,4 @@ path="resume"
 
 +++
 
-Updated 01/2024.
+Updated 12/2025.
