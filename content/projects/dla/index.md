@@ -1,6 +1,6 @@
 +++
 title = "DLA"
-description = "We created a motion controlled diffusion limited aggregation simulator using a Rasberry Pi RP2040 microcontroller."
+description = "We created a motion controlled diffusion limited aggregation simulator using a Rasberry Pi RP2040 microcontroller. Published in Circuit Cellar!"
 weight = 1
 
 [extra]
