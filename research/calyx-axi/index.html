@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>~/nathanielnrn • Calyx implementation of AXI Interfaces</title>
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://nathanielnrn.github.io/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://nathanielnrn.github.io/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://nathanielnrn.github.io/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="https://nathanielnrn.github.io/favicon_io/site.webmanifest">
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="~/nathanielnrn" href="https://nathanielnrn.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href=https://nathanielnrn.github.io/inter_subset_en.css>
+    
+
+    
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/main.css?h=488f3e8c564413dd034b" />
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/skins/mint.css?h=8be2c55cdb86ad80e1ed" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00b86e" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#00804d" />
+        <meta name="description" content="After working on a Verilog AXI implementation
+I pivoted to working on an AXI implementation written in Calyx itself." />
+        <meta property="og:description" content="After working on a Verilog AXI implementation
+I pivoted to working on an AXI implementation written in Calyx itself." />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Calyx implementation of AXI Interfaces" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;nathanielnrn.github.io&#x2F;research&#x2F;calyx-axi&#x2F;" /><meta property="og:site_name" content="~&#x2F;nathanielnrn"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;;frame-src &#x27;self&#x27; player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+
+        <noscript><link rel="stylesheet" href="https://nathanielnrn.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://nathanielnrn.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://nathanielnrn.github.io/js/themeSwitcher.min.js"/></script></head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://nathanielnrn.github.io>~&#x2F;nathanielnrn</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/about/">
+                                About me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/research/">
+                                Research
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/projects/">
+                                Projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/resume/">
+                                Resume
+                                </a>
+                            </li>
+                        
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Calyx implementation of AXI Interfaces
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+
+            
+            
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <p>After successfully <a href="../axi-interface">generating AXI-wrappers</a> in Verilog,
+There was interest in showing that <a href="https://calyxir.org/">Calyx</a> can help
+accelerate the development of interfaces and protocols generally.
+To that end, work was done on creating <a href="https://github.com/cucapra/calyx/issues/1733">dynamically generated AXI-wrappers</a>
+implemented in <strong>Calyx</strong>, as opposed to Verilog.</p>
+<p>Creating this generator touched on a wide range of topics in the Calyx ecosystem.
+While the work performed can eventually be pieced together by me by going through the repos
+issues and PRs, a whirlwind tour of worked done to enable these generators follows:</p>
+<ul>
+<li>Create <code>yxi</code>, a <a href="https://github.com/calyxir/calyx/pull/1729">memory interface schema</a>
+to describe the shape of Calyx memories.</li>
+<li>Create a <a href="https://github.com/calyxir/calyx/tree/51d92b1a33f6136658ed660f6cc5abd76562d2cc/yxi/axi-calyx/cocotb">Cocotb testbench</a>
+to verify correctness of AXI controllers.</li>
+<li>Create a <a href="https://github.com/calyxir/calyx/pull/1842">handwritten AXI controller</a>
+implemented in Calyx, hooked up to above testbench.</li>
+<li>Add <a href="https://github.com/calyxir/calyx/pull/1859">fixes</a> and
+<a href="https://github.com/calyxir/calyx/pull/1927">features</a> to our python builder.</li>
+<li><a href="https://github.com/calyxir/calyx/pull/1855">Create</a> <a href="https://github.com/calyxir/calyx/pull/1856">a</a> <a href="https://github.com/calyxir/calyx/pull/1861">dynamic</a>
+<a href="https://github.com/calyxir/calyx/pull/1862">AXI</a> <a href="https://github.com/calyxir/calyx/pull/1934">controller</a> generator implemented in Calyx.</li>
+<li>Update <a href="https://github.com/calyxir/calyx/pull/1974">Cargo build configurations</a>.</li>
+<li>Introduce <a href="https://github.com/calyxir/calyx/pull/1952">passes</a> to the compiler.</li>
+<li>Introduce compiler driver build <a href="https://github.com/calyxir/calyx/pull/1994">paths</a>.</li>
+<li>(My favorite) introduce <a href="https://github.com/calyxir/calyx/pull/2085">subtyping</a> of components based on ports into Calyx.</li>
+<li>Introduce <a href="https://github.com/calyxir/calyx/pull/2111">dynamic memory</a> Calyx primitives with variable latencies to be used as
+stand ins to real, offchip memory.</li>
+<li>Introduce an <a href="https://github.com/calyxir/calyx/pull/2132">AXI controller generator</a> that removes latency assumptions
+regarding memories, working with dynamic memories introduced.</li>
+<li>Get our AXI controllers to integrate with <a href="https://github.com/calyxir/calyx/pull/2516">XRT</a>
+(Xilinx) via generated AXI-lite subordinate controllers</li>
+<li>My most recent contribution was to add a one-stop command to <a href="https://github.com/calyxir/calyx/pull/2540">generate, execute,
+and verify</a> the results of AXI-wrapped Calyx programs.</li>
+</ul>
+<p>If you are interested in learning more about the AXI generator work I’ve contributed
+please visit this <a href="https://github.com/cucapra/calyx/issues/1733">issue</a> or <a href="https://calyx.zulipchat.com/">reach out</a> on the Calyx Zulip.</p>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+
+    </article>
+</main>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://nathanielnrn.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="bmF0aGFuaWVsbnJuOTlAZ21haWwuY29t"><img alt="email" title="email" src="https://nathanielnrn.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/nathanielnrn/>
+                                <img alt=github title=github src="https://nathanielnrn.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://www.linkedin.com/in/nathaniel-navarro/>
+                                <img alt=linkedin title=linkedin src="https://nathanielnrn.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://nathanielnrn.github.io/js/decodeMail.min.js" async></script></footer>
+
+</body>
+
+</html>

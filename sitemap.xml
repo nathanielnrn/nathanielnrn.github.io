@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="https://nathanielnrn.github.io/sitemap_style.xsl" type="text/xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://nathanielnrn.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/about/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/projects/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/projects/auv/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/projects/calyx/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/projects/dla/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/research/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/research/axi-interface/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/research/calyx-axi/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/research/fud/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/research/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://nathanielnrn.github.io/resume/</loc>
+    </url>
+</urlset>

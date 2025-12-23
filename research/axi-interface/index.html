@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>~/nathanielnrn • Dynamically Generated AXI Interfaces</title>
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://nathanielnrn.github.io/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://nathanielnrn.github.io/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://nathanielnrn.github.io/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="https://nathanielnrn.github.io/favicon_io/site.webmanifest">
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="~/nathanielnrn" href="https://nathanielnrn.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href=https://nathanielnrn.github.io/inter_subset_en.css>
+    
+
+    
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/main.css?h=488f3e8c564413dd034b" />
+        <link rel="stylesheet" href="https://nathanielnrn.github.io/skins/mint.css?h=8be2c55cdb86ad80e1ed" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00b86e" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#00804d" />
+        <meta name="description" content="In Summer &#x27;22 I worked on dynamically generating
+AXI interfaces in Verilog for the purpose of interfacting with XRT shells." />
+        <meta property="og:description" content="In Summer &#x27;22 I worked on dynamically generating
+AXI interfaces in Verilog for the purpose of interfacting with XRT shells." />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Dynamically Generated AXI Interfaces" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;nathanielnrn.github.io&#x2F;research&#x2F;axi-interface&#x2F;" /><meta property="og:site_name" content="~&#x2F;nathanielnrn"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;;frame-src &#x27;self&#x27; player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+
+        <noscript><link rel="stylesheet" href="https://nathanielnrn.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://nathanielnrn.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://nathanielnrn.github.io/js/themeSwitcher.min.js"/></script></head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://nathanielnrn.github.io>~&#x2F;nathanielnrn</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/about/">
+                                About me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/research/">
+                                Research
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/projects/">
+                                Projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://nathanielnrn.github.io/resume/">
+                                Resume
+                                </a>
+                            </li>
+                        
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Dynamically Generated AXI Interfaces
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+
+            
+            
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <h4 id="overview">Overview</h4>
+<div style="font-size:0.8em" >
+<p>I worked on a dynamic AXI generator in Rust that produced Verilog AXI wrappers
+that allows lowered Calyx programs (i.e RTL Verilog) to be simulated/executed on FPGAs. This work
+would not have been possible without the help of <a href="https://rachit.pl/">Rachit Nigam</a>, <a href="https://github.com/sgpthomas">Samuel Thomas</a>, <a href="https://github.com/andrewb1999">Andrew Butt</a>, and <a href="https://www.cs.cornell.edu/~asampson/">Adrian Sampson</a>.</p>
+</div>
+<hr />
+<p>Canonical <a href="https://developer.arm.com/documentation/ihi0022/latest">AXI interfaces</a>
+can be complex to implement correctly. So much so that even some of Xilinx’s (AMD’s FPGA division)
+<a href="https://github.com/jofrfu/tinyTPU/blob/7c9a732dfd1e305fbd86b41a6fb3146ea64693de/src/vhdl/AXI/tinyTPU_v1_0_S00_AXI.vhd#L354-L365">own examples</a>
+have bugs in their implementation that allow transactions to be <a href="https://zipcpu.com/formal/2019/04/16/axi-mistakes.html">lost</a>.</p>
+<p>AXI interfaces are required to interface with FPGA shells such as Xilinx’s <a href="https://www.xilinx.com/products/design-tools/vitis/xrt.html">XRT</a>.
+While platforms like <a href="https://www.xilinx.com/products/design-tools/vitis.html">Vitis</a>
+exist that nominally help with AXI generation, the implementations produced have
+historically been buggy, as mentioned above. Furthermore, relying on Vitis 
+“<a href="https://xilinx.github.io/xup_compute_acceleration/rtl_kernel_lab.html">wizards</a>”
+is clunky and requires more buy-in to Vitis ecosystem than some would like.</p>
+<p>This was the case at <a href="https://capra.cs.cornell.edu/">Capra</a>. We had a desire to
+be able to run <a href="https://calyxir.org/">Calyx</a> programs on FPGAs while being coupled
+to the Vitis ecosystem as little as possible. While we needed Vitis to be able
+to produce <a href="https://xilinx.github.io/XRT/master/html/formats.html">xclbins</a>,
+we hoped to avoid opening up a GUI and invoking an
+“RTL Kernel Wizard”.</p>
+<p>To enable easy execution, I worked on a dynamic AXI generator that took in Calyx
+programs as input, and output verilog files that contained both the lowered
+Calyx program as well as an AXI wrapper that allowed for our RTL design
+to interface with XRT.</p>
+<p>This <a href="https://github.com/calyxir/calyx/tree/main/calyx/backend/src/xilinx">work</a>
+was done in Rust, and built off of initial generators written by
+<a href="https://github.com/sgpthomas">Samuel Thomas</a>.
+<a href="https://github.com/andrewb1999">Andrew Butt</a> provided an immense amount of help
+in navigating AXI specs correctly, and debugging waveforms of buggy AXI interfaces.
+Without either of them, this work couldn’t have happened.</p>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+
+    </article>
+</main>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://nathanielnrn.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="bmF0aGFuaWVsbnJuOTlAZ21haWwuY29t"><img alt="email" title="email" src="https://nathanielnrn.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/nathanielnrn/>
+                                <img alt=github title=github src="https://nathanielnrn.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://www.linkedin.com/in/nathaniel-navarro/>
+                                <img alt=linkedin title=linkedin src="https://nathanielnrn.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://nathanielnrn.github.io/js/decodeMail.min.js" async></script></footer>
+
+</body>
+
+</html>
