@@ -8,7 +8,7 @@ path="about"
 
 
 I'm currently a software engineer at Netflix where I work on
-[unifying data models][UDA] by modeling with [RDF graphs].
+[unifying data models][UDA] by modeling with [RDF graphs][RDF].
 Previously, I worked on tools for automating migrations, like Netflix's
 recent [shift][aurora-migration] to Amazon Aurora. I also interned on
 the Growth Engineering team to deliver backend functionality
