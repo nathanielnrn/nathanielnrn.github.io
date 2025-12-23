@@ -2,7 +2,7 @@
 title = "Dynamically Generated AXI Interfaces"
 #date = 2023-11-30
 #updated = 2023-11-30
-weight = 1
+weight = 2
 description = """In Summer '22 I worked on dynamically generating
 AXI interfaces in Verilog for the purpose of interfacting with XRT shells."""
 
@@ -46,7 +46,7 @@ programs as input, and output verilog files that contained both the lowered
 Calyx program as well as an AXI wrapper that allowed for our RTL design
 to interface with XRT.
 
-This [work](https://github.com/cucapra/calyx/tree/master/calyx-backend/src/xilinx)
+This [work](https://github.com/calyxir/calyx/tree/main/calyx/backend/src/xilinx)
 was done in Rust, and built off of initial generators written by
 [Samuel Thomas][sam].
 [Andrew Butt][andrew] provided an immense amount of help
