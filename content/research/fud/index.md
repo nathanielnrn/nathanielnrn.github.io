@@ -2,7 +2,7 @@
 title = "Push Button FPGA Toolchains"
 #date = 2023-11-30
 #updated = 2023-11-30
-weight = 2
+weight = 3
 description = """In Summer '22 I worked on integrating custom bash and python
 scripts, as well as Xilinx tools into complex toolchains to allow for the easy
 testing and execution of programs on FPGAs."""
